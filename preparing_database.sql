@@ -96,7 +96,10 @@ foreign key(publisher_id) references publishers(id)
 create table book_details(
 book_id int primary key,
 total_books int,
-foreign key(book_id) references books(id)
+updated_by int default(1),
+updated_date date default(now()),
+foreign key(book_id) references books(id),
+foreign key(updated_by) references employees(id)
 );
 
 -- borrow_details
